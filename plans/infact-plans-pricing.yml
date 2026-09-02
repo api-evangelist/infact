@@ -1,0 +1,14 @@
+generated: '2026-09-02'
+method: searched
+source: https://infact.solutions/ and its indexed subpages (/, /hp-zone-products/, /the-history/, /mission/,
+  /randd/); web search for InFact/HPZone pricing
+provider: InFact
+plan_count: 0
+plans: []
+pricing_url: null
+note: InFact publishes no pricing page, no plans, no rate card and no self-service signup. HPZone and
+  Ampara are sold under bilateral contract to national and regional public-health bodies (UK and Netherlands
+  health services) through public procurement, and API credentials are issued by InFact to the customer
+  organisation rather than obtained by anyone online. There is no "contact us for pricing" tier page either
+  — the commercial surface is absent, not gated behind a form.
+model: enterprise / public-sector procurement

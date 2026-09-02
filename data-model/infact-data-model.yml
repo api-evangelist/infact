@@ -1,0 +1,872 @@
+generated: '2026-09-02'
+method: derived
+source: https://cran.r-project.org/package=HPZoneAPI (HPZoneAPI 1.3.0, MIT, published 2026-04-09) — R
+  client for the HPZone API; its own documentation states the client_id/client_secret are "as supplied
+  by InFact"
+api: HPZone API (GraphQL)
+derivation: Entity list, GraphQL query-root names and the complete 248-field catalogue were read from
+  the HPZone_fields tibble shipped in the CRAN package HPZoneAPI 1.3.0 and from its documented query builder.
+  No schema was fetched from the API itself — GraphQL introspection on the endpoint could not be reached
+  from our network (see conventions/infact-conventions.yml).
+graphql_endpoint: https://api.hpzone.nl:8899/Edie
+entity_count: 6
+field_count: 248
+entities:
+- name: Actions
+  query_root: actions
+  description: A scheduled or completed unit of work attached to a case, contact or situation, with due/opened/completed
+    dates and progress state.
+  field_count: 15
+  fields_in_basic_projection: 5
+  fields_requiring_extended_scope: 0
+  fields:
+  - name: Status
+    label: Status
+    scope: standard
+  - name: Scheduled_date
+    label: Scheduled to be opened on
+    scope: standard
+  - name: Progress
+    label: Progress
+    scope: standard
+  - name: Date_opened
+    label: Date Opened
+    scope: standard
+  - name: Date_due_for_completion
+    label: Date due for completion
+    scope: standard
+  - name: Date_created
+    label: Date Created
+    scope: standard
+  - name: Date_closed
+    label: Date Closed
+    scope: standard
+  - name: Created_by_identifier
+    label: Created By Identifier
+    scope: standard
+  - name: Created_by
+    label: Created By
+    scope: standard
+  - name: Closed_by_identifier
+    label: Closed By Identifier
+    scope: standard
+  - name: Closed_by
+    label: Closed By
+    scope: standard
+  - name: Assigned_to_identifier
+    label: Assigned to Identifier
+    scope: standard
+  - name: Assigned_to
+    label: Assigned to
+    scope: standard
+  - name: Action_title
+    label: Action Title
+    scope: standard
+  - name: Number
+    label: Action Number
+    scope: standard
+- name: Cases
+  query_root: cases
+  description: An individual notified case of a communicable disease — the core epidemiological record,
+    carrying diagnosis, onset and reporting dates, risk factors, demographics and case-management workflow
+    state.
+  field_count: 113
+  fields_in_basic_projection: 20
+  fields_requiring_extended_scope: 55
+  fields:
+  - name: Aanvullende_informatie_over_de_melder
+    label: Aanvullende informatie over de melder
+    scope: extended
+  - name: ABR
+    label: ABR
+    scope: standard
+  - name: Additional_comments_on_the_nature_of_the_contact_with_index_case
+    label: Additional comments on the nature of the contact with Index Case
+    scope: extended
+  - name: Age_in_months
+    label: Age in Months (if a baby)
+    scope: extended
+  - name: Age_in_years
+    label: Age in Years (at date of onset)
+    scope: standard
+  - name: Agent
+    label: Agent
+    scope: standard
+  - name: Anders
+    label: Anders
+    scope: standard
+  - name: Any_complication
+    label: Any Complication
+    scope: standard
+  - name: Case_creation_date
+    label: Date/Time entered
+    scope: standard
+  - name: Case_identifier
+    label: Identifier
+    scope: standard
+  - name: Case_manager
+    label: Case Manager
+    scope: standard
+  - name: Case_number
+    label: Case Number
+    scope: standard
+  - name: Confidence
+    label: Confidence
+    scope: standard
+  - name: Country_of_birth
+    label: Country of birth
+    scope: standard
+  - name: Current_location
+    label: Current Location
+    scope: standard
+  - name: Date_closed
+    label: Date closed
+    scope: standard
+  - name: Date_of_death
+    label: Date of death
+    scope: standard
+  - name: Date_of_first_exposure
+    label: Date of First Exposure
+    scope: standard
+  - name: Date_of_last_exposure
+    label: Date of Last Exposure
+    scope: standard
+  - name: Date_of_onset
+    label: Date of Onset
+    scope: standard
+  - name: Date_of_onset_resolution
+    label: Date of Onset Resolution
+    scope: standard
+  - name: Datum_definitief_in_osiris
+    label: Datum definitief in Osiris
+    scope: standard
+  - name: Datum_geautomatiseerd_in_osiris
+    label: Datum geautomatiseerd in Osiris
+    scope: standard
+  - name: Datum_gefiatteerd_in_osiris
+    label: Datum gefiatteerd in Osiris
+    scope: standard
+  - name: Datum_gewist
+    label: Datum gewist
+    scope: standard
+  - name: Datum_melding_aan_de_ggd
+    label: Datum melding aan de ggd
+    scope: standard
+  - name: Degree_of_contact
+    label: Degree of Contact
+    scope: standard
+  - name: Diagnosis
+    label: Diagnosis
+    scope: standard
+  - name: Disease
+    label: Disease
+    scope: standard
+  - name: Entered_as_a_contact_of
+    label: Entered as a Contact of
+    scope: standard
+  - name: Entered_as_a_contact_of_identifier
+    label: Entered as a Contact of Identifier
+    scope: standard
+  - name: Entered_by
+    label: Entered by
+    scope: standard
+  - name: Case_manager_identifier
+    label: Case Manager Identifier
+    scope: extended
+  - name: Diabetes_mellitus
+    label: Diabetes Mellitus
+    scope: extended
+  - name: Entered_by_identifier
+    label: Entered by Identifier
+    scope: extended
+  - name: Formele_melder_anders_dan_ha_lab
+    label: Formele melder anders dan HA/Lab
+    scope: standard
+  - name: Gender
+    label: Gender
+    scope: standard
+  - name: Ethnic_origin
+    label: Ethnic Origin
+    scope: extended
+  - name: Family_name
+    label: Family Name
+    scope: extended
+  - name: First_name
+    label: First Name
+    scope: extended
+  - name: Full_name
+    label: Full Name
+    scope: extended
+  - name: Gp
+    label: GP
+    scope: extended
+  - name: Hospitalised
+    label: Hospitalised
+    scope: standard
+  - name: Gp_address1
+    label: GP Address1
+    scope: extended
+  - name: Gp_address2
+    label: GP Address2
+    scope: extended
+  - name: Infection
+    label: Infection
+    scope: standard
+  - name: Gp_address3
+    label: GP Address3
+    scope: extended
+  - name: Laboratorium_waar_de_casus_gediagnosticeerd_is
+    label: Laboratorium waar de casus gediagnosticeerd is
+    scope: standard
+  - name: Gp_address4
+    label: GP Address4
+    scope: extended
+  - name: Gp_postcode
+    label: GP Postcode
+    scope: extended
+  - name: Gp_practice_die_de_casus_gediagnosticeerd_heeft
+    label: GP Practice die de casus gediagnosticeerd heeft
+    scope: extended
+  - name: Meldingsplichtige_ziekte
+    label: Meldingsplichtige ziekte
+    scope: standard
+  - name: Gp_telephone
+    label: GP Telephone
+    scope: extended
+  - name: Hartaandoening
+    label: Hartaandoening
+    scope: extended
+  - name: Huisarts_die_de_casus_gediagnosticeerd_heeft
+    label: Huisarts die de casus gediagnosticeerd heeft
+    scope: extended
+  - name: Immuungecompromitteerd
+    label: Immuungecompromitteerd
+    scope: extended
+  - name: Import_source
+    label: Import Source
+    scope: extended
+  - name: Indicate_other_risk_factors
+    label: Indicate other risk factors
+    scope: extended
+  - name: Intravenous_drug_user
+    label: Intravenous Drug User
+    scope: extended
+  - name: Investigating_officer
+    label: Investigating Officer
+    scope: extended
+  - name: Molecular_typing_data
+    label: Molecular Typing Data
+    scope: standard
+  - name: Municipality
+    label: Municipality
+    scope: standard
+  - name: Investigating_officer_identifier
+    label: Investigating Officer Identifier
+    scope: extended
+  - name: Latitude
+    label: Latitude
+    scope: extended
+  - name: Oorspronkelijke_bron_van_de_melding
+    label: Oorspronkelijke bron van de melding
+    scope: standard
+  - name: Organism_species
+    label: Organism Species
+    scope: standard
+  - name: Osiris_meldingsnummer
+    label: Osiris Meldingsnummer
+    scope: standard
+  - name: Osirisnummer
+    label: Osirisnummer
+    scope: standard
+  - name: Other_special_risk_factors
+    label: Details of other special risk factors surrounding this case
+    scope: standard
+  - name: Person_identifier
+    label: Not a field in HPZone
+    scope: standard
+  - name: Phage_type
+    label: Phage Type
+    scope: standard
+  - name: Post_district
+    label: Post District
+    scope: standard
+  - name: Postcode
+    label: Postcode
+    scope: standard
+  - name: Leveraandoening
+    label: Leveraandoening
+    scope: extended
+  - name: Longitude
+    label: Longitude
+    scope: extended
+  - name: Principal_contextual_setting
+    label: Principal Contextual Setting
+    scope: standard
+  - name: Priority
+    label: Priority
+    scope: standard
+  - name: Probable_transmission_route
+    label: Probable Transmission Route
+    scope: standard
+  - name: Recent_travel_to_another_country
+    label: Recent travel to another country
+    scope: standard
+  - name: Luchtwegaandoening
+    label: Luchtwegaandoening
+    scope: extended
+  - name: Maligniteit
+    label: Maligniteit
+    scope: extended
+  - name: Serogroup_serotype
+    label: Serogroup/Serotype
+    scope: standard
+  - name: Midwife
+    label: Midwife name
+    scope: extended
+  - name: Status
+    label: Status
+    scope: standard
+  - name: Status_van_de_melding
+    label: Status van de melding
+    scope: standard
+  - name: String_information
+    label: Strain Information
+    scope: standard
+  - name: Toxin
+    label: Toxin
+    scope: standard
+  - name: Unique_identifier
+    label: Not a field in HPZone
+    scope: standard
+  - name: Vaccinated_in_respect_to_the_diagnosis
+    label: Vaccinated in respect to the diagnosis
+    scope: standard
+  - name: Vaccination_date
+    label: Vaccination Date (if relevant)
+    scope: standard
+  - name: Midwife_address1
+    label: Midwife Address1
+    scope: extended
+  - name: Midwife_address2
+    label: Midwife Address2
+    scope: extended
+  - name: Midwife_address3
+    label: Midwife Address3
+    scope: extended
+  - name: Midwife_address4
+    label: Midwife Address4
+    scope: extended
+  - name: Midwife_postcode
+    label: Midwife Postcode
+    scope: extended
+  - name: Midwife_practice
+    label: Midwife Practice
+    scope: extended
+  - name: Midwife_telephone
+    label: Midwife Telephone
+    scope: extended
+  - name: Mogelijk_declarabele_zorg
+    label: Mogelijk declarabele zorg
+    scope: extended
+  - name: Mogelijke_bron_in_buitenland
+    label: Mogelijk bron in buitenland?
+    scope: extended
+  - name: Mogelijke_bron_in_Nederland_buitenshuis
+    label: Mogelijk bron in Nederland (buitenshuis)?
+    scope: extended
+  - name: Mogelijke_bron_in_zorginstelling_in_Nederland
+    label: Mogelijke bron in zorginstelling in Nederland?
+    scope: extended
+  - name: Newborn
+    label: Newborn
+    scope: extended
+  - name: Nieraandoening
+    label: Nieraandoening
+    scope: extended
+  - name: Number_or_building
+    label: Number or Building
+    scope: extended
+  - name: Practice
+    label: Practice
+    scope: extended
+  - name: Pregnant
+    label: Pregnant
+    scope: extended
+  - name: Relationship_to_the_above_case
+    label: Relationship to the above case
+    scope: extended
+  - name: Salmonella_subspecies
+    label: Salmonella subspecies
+    scope: extended
+  - name: Sputumkweek_gedaan
+    label: Sputumkweek gedaan?
+    scope: extended
+  - name: Tussenvoegsel
+    label: Tussenvoegsel
+    scope: extended
+  - name: Works_in_education
+    label: Works in Education
+    scope: extended
+  - name: Works_in_health_care
+    label: Works in Health Care
+    scope: extended
+  - name: Works_with_food
+    label: Works with Food
+    scope: extended
+- name: Contacts
+  query_root: contacts
+  description: A person identified as having been in contact with a case, tracked for follow-up, prophylaxis
+    and monitoring.
+  field_count: 60
+  fields_in_basic_projection: 12
+  fields_requiring_extended_scope: 37
+  fields:
+  - name: Age_in_months
+    label: Age in Months (if a baby)
+    scope: extended
+  - name: Any_underlying_medical_condition
+    label: Any significant underlying medical condition
+    scope: extended
+  - name: Case_manager_identifier
+    label: Case Manager Identifier
+    scope: extended
+  - name: Entered_by_identifier
+    label: Entered by Identifier
+    scope: extended
+  - name: Ethnic_origin
+    label: Ethnic Origin
+    scope: extended
+  - name: Family_name
+    label: Family Name
+    scope: extended
+  - name: First_name
+    label: First Name
+    scope: extended
+  - name: Full_name
+    label: Full Name
+    scope: extended
+  - name: Gp
+    label: GP
+    scope: extended
+  - name: Gp_address1
+    label: GP Address1
+    scope: extended
+  - name: Gp_address2
+    label: GP Address2
+    scope: extended
+  - name: Gp_address3
+    label: GP Address3
+    scope: extended
+  - name: Gp_address4
+    label: GP Address4
+    scope: extended
+  - name: Gp_postcode
+    label: GP Postcode
+    scope: extended
+  - name: Gp_telephone
+    label: GP Telephone
+    scope: extended
+  - name: Indicate_other_risk_factors
+    label: Indicate other risk factors
+    scope: extended
+  - name: Intravenous_drug_user
+    label: Intravenous Drug User
+    scope: extended
+  - name: Investigating_officer
+    label: Investigating Officer
+    scope: extended
+  - name: Investigating_officer_identifier
+    label: Investigating Officer Identifier
+    scope: extended
+  - name: Midwife
+    label: Midwife name
+    scope: extended
+  - name: Midwife_address1
+    label: Midwife Address1
+    scope: extended
+  - name: Midwife_address2
+    label: Midwife Address2
+    scope: extended
+  - name: Midwife_address3
+    label: Midwife Address3
+    scope: extended
+  - name: Vaccination_date
+    label: Vaccination Date (if relevant)
+    scope: standard
+  - name: Vaccinated_in_respect_to_the_diagnosis
+    label: Vaccinated in respect to the diagnosis
+    scope: standard
+  - name: Unique_identifier
+    label: Not a field in HPZone
+    scope: standard
+  - name: Status
+    label: Status
+    scope: standard
+  - name: Midwife_address4
+    label: Midwife Address4
+    scope: extended
+  - name: Probable_transmission_route
+    label: Probable Transmission Route
+    scope: standard
+  - name: Principal_contextual_setting
+    label: Principal Contextual Setting
+    scope: standard
+  - name: Midwife_postcode
+    label: Midwife Postcode
+    scope: extended
+  - name: Postcode
+    label: Postcode
+    scope: standard
+  - name: Post_district
+    label: Post District
+    scope: standard
+  - name: Other_special_risk_factors
+    label: Details of other special risk factors surrounding this case
+    scope: standard
+  - name: Midwife_practice
+    label: Midwife Practice
+    scope: extended
+  - name: Municipality
+    label: Municipality
+    scope: standard
+  - name: Midwife_telephone
+    label: Midwife Telephone
+    scope: extended
+  - name: Mogelijk_declarabele_zorg
+    label: Mogelijk declarabele zorg
+    scope: extended
+  - name: Newborn
+    label: Newborn
+    scope: extended
+  - name: Number_or_building
+    label: Number or Building
+    scope: extended
+  - name: Practice
+    label: Practice
+    scope: extended
+  - name: Pregnant
+    label: Pregnant
+    scope: extended
+  - name: Relationship_to_the_above_case
+    label: Relationship to the above case
+    scope: extended
+  - name: Gender
+    label: Gender
+    scope: standard
+  - name: Tussenvoegsel
+    label: Tussenvoegsel
+    scope: extended
+  - name: Works_in_education
+    label: Works in Education
+    scope: extended
+  - name: Entered_by
+    label: Entered by
+    scope: standard
+  - name: Degree_of_contact
+    label: Degree of Contact
+    scope: standard
+  - name: Date_of_last_exposure
+    label: Date of Last Exposure
+    scope: standard
+  - name: Date_of_first_exposure
+    label: Date of First Exposure
+    scope: standard
+  - name: Current_location
+    label: Current Location
+    scope: standard
+  - name: Country_of_birth
+    label: Country of birth
+    scope: standard
+  - name: Contact_number
+    label: Contact Number
+    scope: standard
+  - name: Contact_identifier
+    label: Identifier
+    scope: standard
+  - name: Contact_creation_date
+    label: Date/Time entered
+    scope: standard
+  - name: Works_in_health_care
+    label: Works in Health Care
+    scope: extended
+  - name: Case_manager
+    label: Case Manager
+    scope: standard
+  - name: Agent
+    label: Agent
+    scope: standard
+  - name: Age_in_years
+    label: Age in Years
+    scope: standard
+  - name: Works_with_food
+    label: Works with Food
+    scope: extended
+- name: Contexts
+  query_root: contexts
+  description: A setting or place associated with a case or situation (institution, workplace, event)
+    used for exposure and setting-based analysis.
+  field_count: 12
+  fields_in_basic_projection: 0
+  fields_requiring_extended_scope: 0
+  fields:
+  - name: Unique_identifier
+    label: Not a field in HPZone
+    scope: standard
+  - name: Type
+    label: Type
+    scope: standard
+  - name: Start_date
+    label: Start Date
+    scope: standard
+  - name: Relationship
+    label: Relationship
+    scope: standard
+  - name: End_date
+    label: End Date
+    scope: standard
+  - name: Date_created
+    label: Date/Time entered
+    scope: standard
+  - name: Context
+    label: Context
+    scope: standard
+  - name: Address1
+    label: Address 1
+    scope: standard
+  - name: Address2
+    label: Address 2
+    scope: standard
+  - name: Address3
+    label: Address 3
+    scope: standard
+  - name: Address4
+    label: Address 4
+    scope: standard
+  - name: Postcode
+    label: Postcode
+    scope: standard
+- name: Enquiries
+  query_root: enquiries
+  description: An inbound query handled by the health-protection team, with receipt, handling and outcome
+    fields.
+  field_count: 18
+  fields_in_basic_projection: 12
+  fields_requiring_extended_scope: 0
+  fields:
+  - name: Unique_identifier
+    label: Not a field in HPZone
+    scope: standard
+  - name: Type_of_caller
+    label: Type of Caller
+    scope: standard
+  - name: Status
+    label: Status
+    scope: standard
+  - name: Specific_topic
+    label: Specific Topic
+    scope: standard
+  - name: Received_on
+    label: Received on
+    scope: standard
+  - name: Originally_taken_by_identifier
+    label: Originally taken by Identifier
+    scope: standard
+  - name: Originally_taken_by
+    label: Originally taken by
+    scope: standard
+  - name: Organisation_location
+    label: Organisation/Location (from Potential Situation Details)
+    scope: standard
+  - name: Organisation
+    label: Organisation
+    scope: standard
+  - name: Handled_by_identifier
+    label: Handled By Identifier
+    scope: standard
+  - name: Handled_by
+    label: Handled By
+    scope: standard
+  - name: Enquiry_title
+    label: Enquiry Title
+    scope: standard
+  - name: Enquiry_number
+    label: Enquiry Number
+    scope: standard
+  - name: Date_closed
+    label: Date closed
+    scope: standard
+  - name: Caller_postcode4
+    label: Caller/Organisation Postcode (numbers)
+    scope: standard
+  - name: Caller_postcode_letters
+    label: Caller/Organisation Postcode (letters)
+    scope: standard
+  - name: Broad_topic
+    label: Broad Topic
+    scope: standard
+  - name: Additional_topic
+    label: Additional Topic
+    scope: standard
+- name: Situations
+  query_root: situations
+  description: An outbreak, incident or cluster — the umbrella record under which related cases, contacts
+    and actions are managed.
+  field_count: 30
+  fields_in_basic_projection: 17
+  fields_requiring_extended_scope: 0
+  fields:
+  - name: Unique_identifier
+    label: Not a field in HPZone
+    scope: standard
+  - name: Type
+    label: Type
+    scope: standard
+  - name: Subspecies_serotype
+    label: Subspecies/Serotype
+    scope: standard
+  - name: Status
+    label: Status
+    scope: standard
+  - name: Start_date
+    label: Start Date
+    scope: standard
+  - name: Situation_number
+    label: Identification Number (internal)
+    scope: standard
+  - name: Situation_identifier
+    label: Identifier
+    scope: standard
+  - name: Situation_creation_date
+    label: Date/Time Entered
+    scope: standard
+  - name: Scenario
+    label: Scenario
+    scope: standard
+  - name: Requires_special_management
+    label: Requires special management
+    scope: standard
+  - name: Principal_contextual_setting
+    label: Principal Contextual Setting
+    scope: standard
+  - name: Postcode
+    label: Postcode
+    scope: standard
+  - name: Phage_type_coding
+    label: Phage Type/Coding
+    scope: standard
+  - name: Outbreak_number_external
+    label: Outbreak Number (external)
+    scope: standard
+  - name: Osirisnummer
+    label: Osirisnummer
+    scope: standard
+  - name: Organism_species
+    label: Organism Species
+    scope: standard
+  - name: Number_potentially_at_risk
+    label: Number potentially at risk
+    scope: standard
+  - name: Number_of_symptomatic_cases
+    label: Number of symptomatic cases
+    scope: standard
+  - name: Number_of_fatalities
+    label: Number of fatalities
+    scope: standard
+  - name: Number_hospitalised
+    label: Number hospitalised
+    scope: standard
+  - name: Municipality
+    label: Municipality
+    scope: standard
+  - name: Manager_identifier
+    label: Manager Identifier
+    scope: standard
+  - name: Manager
+    label: Manager
+    scope: standard
+  - name: Location
+    label: Location (for identification)
+    scope: standard
+  - name: Investigating_officer_identifier
+    label: Investigating Officer Identifier
+    scope: standard
+  - name: Investigating_officer
+    label: Investigating Officer
+    scope: standard
+  - name: Infectious_agent
+    label: Infectious Agent
+    scope: standard
+  - name: Confidence
+    label: Confidence
+    scope: standard
+  - name: Closed_date
+    label: Closed Date
+    scope: standard
+  - name: Artikel_26
+    label: Artikel 26
+    scope: standard
+relationships:
+- from: Cases
+  to: Situations
+  type: belongs_to
+  via: Situation
+  confidence: medium
+  evidence: Cases carries a Situation field; HPZone documentation describes situations as the umbrella
+    under which cases are managed.
+- from: Contacts
+  to: Cases
+  type: belongs_to
+  via: Case_number / index-case fields
+  confidence: medium
+  evidence: Contacts carries Additional_comments_on_the_nature_of_the_contact_with_index_case and case-manager
+    identifiers, indicating an index-case association.
+- from: Actions
+  to: Cases
+  type: belongs_to
+  via: case/situation reference
+  confidence: low
+  evidence: Actions is documented as a work item in the same query surface; the joining field is not present
+    in the published field catalogue.
+relationship_note: HPZone publishes no schema document, so relationships below are read ONLY from identifier
+  fields that appear in the documented field catalogue. They are structural inferences from field names,
+  not declared associations; confidence is recorded per row.
+conventions:
+  query_roots: lower-case plural (cases, contacts, situations, enquiries, actions, contexts)
+  field_names: Sentence_case_with_underscores; a human-readable label is published alongside each field
+  collection_envelope: '{ items { ... }, totalCount }'
+  multilingual_fields: A number of Cases/Contacts fields are named in Dutch (e.g. Hartaandoening, Aanvullende_informatie_over_de_melder),
+    reflecting per-deployment schema extension by the national customer rather than a fixed product schema.
+identifier_fields_observed:
+  Actions:
+  - Assigned_to_identifier
+  - Closed_by_identifier
+  - Created_by_identifier
+  Cases:
+  - Case_identifier
+  - Case_manager_identifier
+  - Case_number
+  - Entered_as_a_contact_of_identifier
+  - Entered_by_identifier
+  - Investigating_officer_identifier
+  - Person_identifier
+  - Unique_identifier
+  Contacts:
+  - Case_manager_identifier
+  - Contact_identifier
+  - Contact_number
+  - Entered_by_identifier
+  - Investigating_officer_identifier
+  - Unique_identifier
+  Contexts:
+  - Unique_identifier
+  Enquiries:
+  - Enquiry_number
+  - Handled_by_identifier
+  - Originally_taken_by_identifier
+  - Unique_identifier
+  Situations:
+  - Investigating_officer_identifier
+  - Manager_identifier
+  - Situation_identifier
+  - Situation_number
+  - Unique_identifier

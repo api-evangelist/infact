@@ -1,0 +1,33 @@
+generated: '2026-09-02'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: infact.solutions
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 25 12:29:26 2026 GMT
+  hsts: false
+- host: api.hpzone.nl
+  https: false
+domains:
+- domain: infact.solutions
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: hpzone.nl
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
+notes:
+- api.hpzone.nl shows https:false because the probe tests port 443. The HPZone API is served on port 8899,
+  which our network could not reach either (TCP connect timeout on all three A records, single bounded
+  attempt). No conclusion should be drawn about the API host's TLS posture from this row.
+- infact.solutions serves TLS 1.3 but sets no HSTS header. The site sits behind a SiteGround JavaScript
+  bot challenge (HTTP 202 on every path), which is what the HEAD probe reached.
+- DMARC is published at p=none — monitoring only, no enforcement — on a domain belonging to a supplier
+  of national public-health case-management systems.
+- Neither infact.solutions nor hpzone.nl publishes DNSSEC or a CAA record. hpzone.nl publishes no SPF
+  and no DMARC at all; its root is a parked GoDaddy lander, while the operational API lives at api.hpzone.nl:8899.

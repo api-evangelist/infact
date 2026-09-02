@@ -1,0 +1,30 @@
+generated: '2026-09-02'
+method: searched
+source: CRAN package HPZoneAPI 1.3.0 (README.md, R/HPZone_request.R, NEWS.md)
+provider: InFact
+api: HPZone API (GraphQL)
+limit_count: 0
+limits: []
+response_headers:
+  documented: []
+  observed: []
+  note: No X-RateLimit-*, RateLimit-* or Retry-After header is documented, and none could be observed
+    — the endpoint on port 8899 was unreachable from our network (single bounded attempt, TCP connect
+    timeout).
+exhaustion_status_code: null
+note: 'InFact publishes no rate limits for the HPZone API. limit_count is an honest zero: no per-key,
+  per-account or per-endpoint request ceiling, window or burst allowance appears in any public source,
+  and there is no public documentation in which one could appear.'
+request_ceilings_observed:
+- type: page_size
+  value: 500
+  unit: records per request
+  parameter: take
+  source: HPZoneAPI README.md ("een maximaal aantal rijen per aanvraag") and the n_max=500 default in
+    HPZone_request_paginated()
+  note: This is a pagination ceiling, not a rate limit, and is deliberately NOT counted in limit_count.
+    It is recorded because it is the only published request-volume constraint on the API.
+reliability_caveat: The published client had to add a forced ORDER clause in v1.2.0 because the server
+  does not guarantee stable sort across pages — a client that pages this API naively silently duplicates
+  and drops rows. That is a correctness hazard, not a rate limit, but it is the thing an integrator most
+  needs to know before writing a paging loop.

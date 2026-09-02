@@ -1,0 +1,93 @@
+generated: '2026-09-02'
+method: searched
+source: https://cran.r-project.org/package=HPZoneAPI (HPZoneAPI 1.3.0, MIT, published 2026-04-09) — README.md,
+  R/HPZone_request.R, R/HPZone_setup.R, NEWS.md
+api: HPZone API (GraphQL)
+provider: InFact
+protocol:
+  style: GraphQL
+  endpoint: https://api.hpzone.nl:8899/Edie
+  method: POST
+  content_type: application/json
+  accept: application/json
+  server_family: HotChocolate (.NET) — inferred from the skip/take/order/where/items/totalCount filter
+    grammar, which is that library's convention. Not asserted by the provider.
+auth_style: OAuth 2.0 client-credentials bearer (external GovConext issuer) plus a custom `scope` request
+  header. See authentication/infact-authentication.yml.
+pagination:
+  style: offset
+  params:
+  - skip
+  - take
+  max_page_size: 500
+  response_fields:
+  - items
+  - totalCount
+  stable_ordering: NOT guaranteed by the server. The published client added an automatic `order:` clause
+    in v1.2.0 precisely because "the API doesn't guarantee proper sorting", which allowed a paginated
+    request to return duplicate rows and silently omit others. Any client paging this API MUST supply
+    an explicit order argument.
+  evidence: HPZoneAPI NEWS.md 1.2.0
+filtering:
+  argument: where
+  operators_observed:
+  - eq
+  - gte
+  shape: 'where: { Field: { op: value } }'
+  note: Only eq and gte appear in the published examples; the full operator set is undocumented publicly.
+sorting:
+  argument: order
+  shape: 'order: [ { Field: ASC } ]'
+field_selection: GraphQL selection set on `items`. Which fields are returnable at all is governed by the
+  scope (see scopes/infact-scopes.yml), not by the selection set.
+versioning:
+  scheme: null
+  note: No version segment in the path, no version header and no published versioning policy. The endpoint
+    path (/Edie) is a service name, not a version.
+error_envelope:
+  format: GraphQL errors array
+  shape: '{ "errors": [ { "message": ..., "locations": [...] } ] }'
+  rfc9457: false
+  note: Standard GraphQL error shape is implied by the server family; InFact publishes no error reference
+    and we could not observe a live error response.
+rate_limit_signaling:
+  headers: null
+  note: No rate-limit headers are documented and none were observable. The only published request ceiling
+    is the 500-row page cap.
+idempotency:
+  supported: na
+  reason: The published surface is read-only — the client exposes query construction only, and no mutation,
+    write or command is documented anywhere in the public material. Idempotency does not apply to a query-only
+    surface.
+dry_run_mode:
+  supported: na
+  reason: Read-only surface; there is no action to rehearse.
+reversibility:
+  grade: na
+  applicable: false
+  reason: HPZone's public API surface is read-only. The six documented GraphQL query roots (cases, contacts,
+    situations, enquiries, actions, contexts) all return collections; no mutation, create, update, delete,
+    cancel or reverse operation appears in the published client, the CRAN documentation or any public
+    InFact material. With no write surface there is nothing to reverse, so reversibility, idempotency
+    and dry-run are all `na` rather than failing.
+  write_surfaces: []
+  caveat: If a write surface exists behind the customer-only documentation, it is not visible from any
+    public source and this grade should be revisited on the next pass if InFact publishes a reference.
+tracing:
+  request_id_header: null
+  note: Not documented.
+observed_probe:
+  url: https://api.hpzone.nl:8899/Edie
+  method: POST
+  attempted: '2026-09-02'
+  status: <no response>
+  detail: TCP connect to port 8899 timed out from our network against all three published A records (76.223.67.189,
+    13.248.213.45, 85.90.69.236). GraphQL introspection therefore could not be attempted and no SDL was
+    captured. This is a network-reachability observation about our vantage point, not a statement that
+    the endpoint is down.
+cross_references:
+- authentication/infact-authentication.yml
+- scopes/infact-scopes.yml
+- data-model/infact-data-model.yml
+- rate-limits/infact-rate-limits.yml
+- lifecycle/infact-lifecycle.yml

@@ -1,23 +1,90 @@
 aid: infact
 name: InFact
-description: 'InFact is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'InFact (InFact UK Ltd, trading as Infact — Solutions in public health) builds software for
+  communicable-disease control and public-health service delivery. Founded in 2003 by Dr Chakib Kara-Zaitri
+  and Bob Hamilton, the company''s flagship product HPZone is an integrated suite for infectious-disease
+  control built on two decades of frontline work with the national health services of the United Kingdom
+  and the Netherlands: HPCore for case, contact and outbreak management with decision-support protocols
+  and enquiry handling, EpiQ for epidemiological questionnaires, and HPInsight for surveillance dashboards,
+  reporting and modelling. A second product line, Ampara (the successor to SHDirect), covers the clinic
+  patient journey from triage through consultation, diagnostics, prescribing and follow-up. InFact is
+  a Silver Industry Partner of openEHR International. HPZone exposes a credential-gated GraphQL API over
+  cases, contacts, situations, enquiries, actions and contexts; the API exists and is in production use
+  by national public-health bodies, but InFact publishes no public developer portal, reference or machine-readable
+  contract.'
+image: null
 url: https://raw.githubusercontent.com/api-evangelist/infact/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:openehr-coalition
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
-apis: []
+- Health
+- Public Health
+- Healthcare
+- Epidemiology
+- Disease Surveillance
+- Outbreak Management
+- Contact Tracing
+- Electronic Health Records
+- openEHR
+- GraphQL
+- Government
+apis:
+- aid: infact-hpzone-api
+  name: HPZone API
+  description: 'The HPZone GraphQL API exposes read access to the HPZone communicable-disease control
+    record — cases, contacts, situations, enquiries, actions and contexts — over a single POST endpoint.
+    Access is by OAuth 2.0 client-credentials with the client_id and client_secret issued by InFact to
+    the customer organisation; tokens are minted by an external identity federation rather than by InFact.
+    Two named scopes govern the field set: `standard` returns the pseudonymised subset, while `extended`
+    unlocks directly-identifying and special-category health fields. The API and its documentation are
+    not publicly available.'
+  humanURL: https://infact.solutions/hp-zone-products/
+  baseURL: https://api.hpzone.nl:8899/Edie
+  tags:
+  - GraphQL
+  - Public Health
+  - Disease Surveillance
+  properties:
+  - type: GraphQL
+    url: https://api.hpzone.nl:8899/Edie
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/infact-domain-security.yml
 - type: Website
   url: https://infact.solutions/
+- type: Support
+  url: https://infact.solutions/contact-us/
+- type: Authentication
+  url: authentication/infact-authentication.yml
+- type: OAuthScopes
+  url: scopes/infact-scopes.yml
+- type: Conventions
+  url: conventions/infact-conventions.yml
+- type: DataModel
+  url: data-model/infact-data-model.yml
+- type: Packages
+  url: packages/infact-packages.yml
+- type: Conformance
+  url: conformance/infact-conformance.yml
+- type: Lifecycle
+  url: lifecycle/infact-lifecycle.yml
+- type: Plans
+  url: plans/infact-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/infact-rate-limits.yml
+- type: LLMsTxt
+  url: llms/infact-llms.txt
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1

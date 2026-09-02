@@ -1,0 +1,154 @@
+generated: '2026-09-02'
+method: searched
+source: https://cran.r-project.org/package=HPZoneAPI (HPZoneAPI 1.3.0, MIT, published 2026-04-09) — R
+  client for the HPZone API; its own documentation states the client_id/client_secret are "as supplied
+  by InFact"
+api: HPZone API (GraphQL)
+provider: InFact
+flow: oauth2 client_credentials
+token_endpoint: https://connect.govconext.nl/oidc/token
+notes:
+- HPZone carries TWO named scopes. They are supplied to the token endpoint by the OAuth2 client-credentials
+  flow AND echoed on each data request as a custom `scope:` HTTP header, per the published R client.
+- 'The scope boundary is a data-protection boundary, not a functional one: every one of the 248 documented
+  fields is readable under `extended`, while `standard` withholds the 92 fields that carry directly-identifying
+  or special-category personal data (name, GP details, ethnic origin, clinical conditions, staff identifiers).'
+- Scope names are configurable per deployment (HPZone_setup(standard=, extended=)); "standard" and "extended"
+  are the package defaults and the values used by the Dutch national deployment.
+scopes:
+- name: standard
+  description: Read access to the pseudonymised subset of every HPZone entity — epidemiological, workflow
+    and geographic fields with directly-identifying and special-category personal data withheld.
+  field_count: 156
+- name: extended
+  description: Read access to the complete field set, including directly-identifying personal data (names,
+    GP practice and address, telephone) and special-category health data (clinical conditions, ethnic
+    origin) on Cases and Contacts.
+  field_count: 248
+by_endpoint:
+- endpoint: Actions
+  fields_total: 15
+  readable_with_standard: 15
+  requires_extended: 0
+  extended_only_fields: []
+- endpoint: Cases
+  fields_total: 113
+  readable_with_standard: 58
+  requires_extended: 55
+  extended_only_fields:
+  - Aanvullende_informatie_over_de_melder
+  - Additional_comments_on_the_nature_of_the_contact_with_index_case
+  - Age_in_months
+  - Case_manager_identifier
+  - Diabetes_mellitus
+  - Entered_by_identifier
+  - Ethnic_origin
+  - Family_name
+  - First_name
+  - Full_name
+  - Gp
+  - Gp_address1
+  - Gp_address2
+  - Gp_address3
+  - Gp_address4
+  - Gp_postcode
+  - Gp_practice_die_de_casus_gediagnosticeerd_heeft
+  - Gp_telephone
+  - Hartaandoening
+  - Huisarts_die_de_casus_gediagnosticeerd_heeft
+  - Immuungecompromitteerd
+  - Import_source
+  - Indicate_other_risk_factors
+  - Intravenous_drug_user
+  - Investigating_officer
+  - Investigating_officer_identifier
+  - Latitude
+  - Leveraandoening
+  - Longitude
+  - Luchtwegaandoening
+  - Maligniteit
+  - Midwife
+  - Midwife_address1
+  - Midwife_address2
+  - Midwife_address3
+  - Midwife_address4
+  - Midwife_postcode
+  - Midwife_practice
+  - Midwife_telephone
+  - Mogelijk_declarabele_zorg
+  - Mogelijke_bron_in_Nederland_buitenshuis
+  - Mogelijke_bron_in_buitenland
+  - Mogelijke_bron_in_zorginstelling_in_Nederland
+  - Newborn
+  - Nieraandoening
+  - Number_or_building
+  - Practice
+  - Pregnant
+  - Relationship_to_the_above_case
+  - Salmonella_subspecies
+  - Sputumkweek_gedaan
+  - Tussenvoegsel
+  - Works_in_education
+  - Works_in_health_care
+  - Works_with_food
+- endpoint: Contacts
+  fields_total: 60
+  readable_with_standard: 23
+  requires_extended: 37
+  extended_only_fields:
+  - Age_in_months
+  - Any_underlying_medical_condition
+  - Case_manager_identifier
+  - Entered_by_identifier
+  - Ethnic_origin
+  - Family_name
+  - First_name
+  - Full_name
+  - Gp
+  - Gp_address1
+  - Gp_address2
+  - Gp_address3
+  - Gp_address4
+  - Gp_postcode
+  - Gp_telephone
+  - Indicate_other_risk_factors
+  - Intravenous_drug_user
+  - Investigating_officer
+  - Investigating_officer_identifier
+  - Midwife
+  - Midwife_address1
+  - Midwife_address2
+  - Midwife_address3
+  - Midwife_address4
+  - Midwife_postcode
+  - Midwife_practice
+  - Midwife_telephone
+  - Mogelijk_declarabele_zorg
+  - Newborn
+  - Number_or_building
+  - Practice
+  - Pregnant
+  - Relationship_to_the_above_case
+  - Tussenvoegsel
+  - Works_in_education
+  - Works_in_health_care
+  - Works_with_food
+- endpoint: Contexts
+  fields_total: 12
+  readable_with_standard: 12
+  requires_extended: 0
+  extended_only_fields: []
+- endpoint: Enquiries
+  fields_total: 18
+  readable_with_standard: 18
+  requires_extended: 0
+  extended_only_fields: []
+- endpoint: Situations
+  fields_total: 30
+  readable_with_standard: 30
+  requires_extended: 0
+  extended_only_fields: []
+docs: null
+docs_note: InFact publishes no public scope reference. The scope model above is read from the published
+  CRAN client and its HPZone_necessary_scope() field table; the provider-side documentation is customer-only
+  (see x-coverage in apis.yml).

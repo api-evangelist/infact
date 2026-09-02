@@ -1,0 +1,48 @@
+generated: '2026-09-02'
+method: searched
+source: https://cran.r-project.org/package=HPZoneAPI (HPZoneAPI 1.3.0, MIT, published 2026-04-09) — R/HPZone_setup.R
+  and R/HPZone_request.R; the package documents client_id and client_secret as "as supplied by InFact".
+api: HPZone API (GraphQL)
+provider: InFact
+summary: HPZone authenticates machine clients with OAuth 2.0 client-credentials against an EXTERNAL identity
+  provider — the Dutch government identity federation GovConext — and then carries the granted data scope
+  on every request in a custom `scope` header. InFact issues the client_id/client_secret to the customer
+  organisation; the token is minted by GovConext, not by InFact.
+schemes:
+- name: oauth2_client_credentials
+  type: oauth2
+  flow: clientCredentials
+  token_endpoint: https://connect.govconext.nl/oidc/token
+  issuer: https://connect.govconext.nl
+  issuer_type: external_federation
+  issuer_note: GovConext is the Netherlands government/education identity federation operated by SURF.
+    HPZone does not run its own token endpoint in this deployment; the resource server and the authorization
+    server are operated by different organisations.
+  credentials: client_id + client_secret, issued by InFact to the customer organisation
+  scopes:
+  - standard
+  - extended
+  confidential_client: true
+- name: scope_header
+  type: apiKey
+  in: header
+  header_name: scope
+  description: 'Non-standard: the requested data scope is ALSO sent as a plain `scope:` request header
+    on every GraphQL POST alongside the bearer token, per the published client. An integrator that sets
+    only the OAuth scope will not necessarily get the extended field set.'
+transport:
+  scheme: https
+  port: 8899
+  note: The data endpoint is served on a non-standard TLS port (8899), which commonly fails through corporate
+    egress filtering — our own probe could not complete a TCP connection to it (see conventions/infact-conventions.yml).
+oidc_discovery:
+  url: https://connect.govconext.nl/.well-known/openid-configuration
+  status: 200
+  probed: '2026-09-02'
+  note: The GovConext discovery document is public and resolves; InFact publishes no discovery document
+    of its own.
+docs: null
+docs_note: InFact publishes no public authentication reference. The CRAN package description states plainly
+  that "the API and its details are not publicly available"; the provider-side documentation is customer-only.
+onboarding: Credentials are issued by InFact to the customer organisation; there is no self-service signup,
+  sandbox or public key issuance.

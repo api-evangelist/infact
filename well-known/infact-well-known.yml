@@ -1,0 +1,95 @@
+generated: '2026-09-02'
+method: probed
+source: direct HTTP probes 2026-09-02, corroborated by Internet Archive CDX records for infact.solutions
+summary: No /.well-known document of any kind is served. infact.solutions sits behind a SiteGround JavaScript
+  bot challenge that answers HTTP 202 with a Robot Challenge Screen for EVERY path, so no probe returns
+  a document; in-fact.com (which 302-redirects to infact.solutions) returns a clean 404 on every path.
+  Internet Archive records from 2023 independently show 404 on /.well-known/security.txt and /.well-known/openid-configuration,
+  so the absence predates the challenge and is not an artefact of it.
+hosts:
+- host: infact.solutions
+  note: Every path, including the site root, returns HTTP 202 with a 169-195 byte SiteGround sgcaptcha
+    challenge page. None of these is a document; none is a hit.
+  documents:
+  - path: /.well-known/security.txt
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/api-catalog
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+  - path: /.well-known/agent.json
+    status: 202
+    file: null
+    note: bot-challenge shell, not a document
+- host: in-fact.com
+  note: Corporate domain; the site root serves a meta-refresh to https://infact.solutions. All well-known
+    paths 404 cleanly.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: connect.govconext.nl
+  note: NOT an InFact host. Recorded for completeness because it is the OAuth issuer HPZone delegates
+    to; its discovery document is public and served, but it belongs to SURF/GovConext, not to InFact,
+    so it earns InFact no well-known credit.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: third-party issuer document; deliberately not saved into this repo
+archive_corroboration:
+- url: https://infact.solutions/.well-known/security.txt
+  archived: '2023-07-24'
+  status: 404
+- url: https://infact.solutions/.well-known/openid-configuration
+  archived: '2023-07-24'
+  status: 404
+- url: https://infact.solutions/.well-known/ai-plugin.json
+  archived: '2023-07-24'
+  status: 404
+pointer_emitted: false
+pointer_note: 'No WellKnown or SecurityTxt pointer is wired into apis.yml: not one path returned a 200
+  carrying a real document. This file records a verified absence, which is data, not a presence.'

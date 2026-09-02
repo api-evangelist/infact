@@ -1,0 +1,55 @@
+generated: '2026-09-02'
+method: searched
+source: web search for an InFact/HPZone MCP server; probes of infact.solutions and in-fact.com; review
+  of the published HPZone client
+provider: InFact
+api: HPZone API (GraphQL)
+status: candidate
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+summary: InFact ships no MCP server, hosted or local, and no third party has published one for HPZone.
+  The tools below are a DERIVED candidate surface only — a sketch of what an MCP server over the documented
+  GraphQL query roots would expose. Nothing here is callable and no MCPServer pointer is wired into apis.yml.
+blockers:
+- The API is credential-gated (client_credentials issued by InFact per customer) with no self-service
+  signup, so a public MCP server could not be anonymous.
+- The extended scope returns directly-identifying and special-category health data, which makes an agent-facing
+  surface a data-protection decision before it is an engineering one.
+- The endpoint is served on non-standard TLS port 8899, which many MCP client environments cannot reach.
+candidate_tools:
+- name: hpzone_search_cases
+  graphql: cases
+  description: Search notified communicable-disease cases by date, diagnosis and status.
+  inputs_from: where/order/skip/take arguments plus the 113 documented Cases fields
+  confidence: medium
+- name: hpzone_search_contacts
+  graphql: contacts
+  description: Search contacts traced against index cases.
+  inputs_from: 60 documented Contacts fields
+  confidence: medium
+- name: hpzone_search_situations
+  graphql: situations
+  description: Search outbreaks, incidents and clusters.
+  inputs_from: 30 documented Situations fields
+  confidence: medium
+- name: hpzone_search_enquiries
+  graphql: enquiries
+  description: Search inbound health-protection enquiries.
+  inputs_from: 18 documented Enquiries fields
+  confidence: medium
+- name: hpzone_search_actions
+  graphql: actions
+  description: Search scheduled and completed work items.
+  inputs_from: 15 documented Actions fields
+  confidence: medium
+- name: hpzone_search_contexts
+  graphql: contexts
+  description: Search settings and places associated with cases and situations.
+  inputs_from: 12 documented Contexts fields
+  confidence: medium
+derived_from: data-model/infact-data-model.yml

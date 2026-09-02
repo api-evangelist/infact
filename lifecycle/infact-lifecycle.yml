@@ -1,0 +1,53 @@
+generated: '2026-09-02'
+method: probed
+source: DNS enumeration of in-fact.com and infact.solutions; direct HTTP probes 2026-09-02; CRAN release
+  history for HPZoneAPI
+provider: InFact
+api: HPZone API (GraphQL)
+versioning:
+  scheme: null
+  current_version: null
+  note: No version in the path, no version header, no published versioning policy. The path segment /Edie
+    is a service name, not a version.
+deprecation_policy:
+  published: false
+  sunset_header: null
+  deprecation_header: null
+  note: RFC 8594 Sunset/Deprecation headers are neither documented nor observable. No deprecation policy
+    is published.
+sla:
+  published: false
+  note: No public SLA. HPZone is sold into national public-health bodies under bilateral contract.
+status_page:
+  present: false
+  host_probed: https://status.in-fact.com/
+  http_status: 200
+  resolves_to: status.adminlabs.com (CNAME)
+  final_url: https://status.adminlabs.com/status-page-not-found.html
+  body: Admin Labs — "Status page disabled"
+  probed: '2026-09-02'
+  finding: InFact registered a status-page host with the Admin Labs service and it is currently DISABLED
+    — the vendor serves a "Status page disabled" interstitial. This is a status page the company set up
+    and switched off, not one it never had. No StatusPage pointer is wired, because there is nothing an
+    integrator or agent could read.
+other_hosts_probed:
+- host: https://portal.in-fact.com/
+  status: 404
+  note: IIS (Microsoft-HTTPAPI/2.0) with no site bound.
+- host: https://support.in-fact.com/
+  status: <no response>
+  note: TCP connect timed out after 15s; single attempt, not retried.
+- host: https://hpzoneinfo.in-fact.com/
+  status: 404
+  note: Formerly served the InFact UK Ltd product information site (still indexed by search engines at
+    /SitePage/Content/15); the host now returns a bare IIS 404 with no site bound. A retired product-info
+    site that search engines still point at.
+- host: https://hpzone.nl/
+  status: 200
+  note: Parked GoDaddy "lander" page, 114 bytes. The operational API lives on api.hpzone.nl port 8899;
+    the registrable domain root is not used.
+client_release_cadence:
+  note: 'InFact publishes no changelog. The only dated release signal in public is the third-party CRAN
+    client HPZoneAPI: 0.1.0 (2025-10-03) -> 1.1.0 -> 1.2.0 -> 1.3.0 (2026-04-09), i.e. actively maintained
+    within the last five months. That evidences a live API, not a published lifecycle.'
+deprecated_operations: []

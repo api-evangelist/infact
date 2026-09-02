@@ -1,0 +1,53 @@
+generated: '2026-09-02'
+method: searched
+source: CRAN (crandb.r-pkg.org/HPZoneAPI, cranlogs.r-pkg.org), npm registry search, PyPI, GitHub code
+  search
+provider: InFact
+api: HPZone API (GraphQL)
+summary: 'InFact publishes NO first-party client library on any public package registry, and operates
+  no public GitHub organisation. The single published client for the HPZone API is third-party: an R package
+  written and maintained by the data-science team of a Dutch municipal health service (GGD) that consumes
+  the API as a customer.'
+official_sdk_count: 0
+package_count: 1
+packages:
+- name: HPZoneAPI
+  registry: cran
+  official: false
+  url: https://cran.r-project.org/package=HPZoneAPI
+  repository: https://github.com/ggdatascience/HPZoneAPI
+  language: R
+  license: MIT
+  version: 1.3.0
+  published: '2026-04-09'
+  first_published: '2025-10-03'
+  maintainer: Aart Dijkstra (GGD Noord- en Oost-Gelderland)
+  downloads_last_month: 278
+  downloads_window: 2026-08-03..2026-09-01
+  description: 'Wrapper around the HPZone GraphQL API: query builder, automatic pagination with forced
+    ordering, scope detection from the requested field list, date coercion, and OS-keyring credential
+    storage.'
+  covers: Read access to the cases, contacts, situations, enquiries, actions and contexts query roots.
+  note: Third party, not InFact. Its own CRAN description states "the API and its details are not publicly
+    available" — the package is the most complete public description of InFact's API that exists, and
+    it is not published by InFact.
+registries_checked:
+- registry: npm
+  query: hpzone
+  results: 0
+- registry: npm
+  query: infact.solutions org packages
+  results: 0
+- registry: pypi
+  package: hpzone
+  status: 404
+- registry: pypi
+  package: hpzoneapi
+  status: 404
+- registry: cran
+  package: HPZoneAPI
+  status: 200
+- registry: github
+  query: org / user "infact solutions"
+  results: 0
+  note: GitHub user/org search returned zero accounts for InFact; no first-party repository exists.
