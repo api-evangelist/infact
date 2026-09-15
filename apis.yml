@@ -33,7 +33,7 @@ tags:
 - GraphQL
 - Government
 apis:
-- aid: infact-hpzone-api
+- aid: infact:infact-hpzone-api
   name: HPZone API
   description: 'The HPZone GraphQL API exposes read access to the HPZone communicable-disease control
     record — cases, contacts, situations, enquiries, actions and contexts — over a single POST endpoint.
