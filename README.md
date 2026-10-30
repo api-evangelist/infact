@@ -64,5 +64,109 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-InFact is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition) and added to the network as a stub for full-pipeline profiling.
-- https://infact.solutions/
+InFact (InFact UK Ltd, trading as Infact — Solutions in public health) builds software for communicable-disease control and public-health service delivery. Founded in 2003 by Dr Chakib Kara-Zaitri and Bob Hamilton, the company's flagship product HPZone is an integrated suite for infectious-disease control built on two decades of frontline work with the national health services of the United Kingdom and the Netherlands: HPCore for case, contact and outbreak management with decision-support protocols and enquiry handling, EpiQ for epidemiological questionnaires, and HPInsight for surveillance dashboards, reporting and modelling. A second product line, Ampara (the successor to SHDirect), covers the clinic patient journey from triage through consultation, diagnostics, prescribing and follow-up. InFact is a Silver Industry Partner of openEHR International. HPZone exposes a credential-gated GraphQL API over cases, contacts, situations, enquiries, actions and contexts; the API exists and is in production use by national public-health bodies, but InFact publishes no public developer portal, reference or machine-readable contract.
+
+**Areas:** Company · Health · Public Health · Healthcare · Epidemiology · Disease Surveillance · Outbreak Management · Contact Tracing · Electronic Health Records · openEHR · GraphQL · Government
+
+## InFact on APIs.io
+
+Everything profiled for InFact is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/infact/](https://apis.io/providers/infact/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [HPZone API](https://apis.io/apis/infact/infact-hpzone-api/) — The HPZone GraphQL API exposes read access to the HPZone communicable-disease control record — cases, contacts, situations, enquiries, actions and contexts…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [infact-mcp.yml](https://apis.io/servers/infact/infact-mcp-yml/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Infact Authentication](https://apis.io/security/infact/infact-authentication/)
+- [Infact Domain Security](https://apis.io/security/infact/infact-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Infact Scopes](https://apis.io/scopes/infact/infact-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Infact Plans Pricing](https://apis.io/plans/infact/infact-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Infact Rate Limits](https://apis.io/rate-limits/infact/infact-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://infact.solutions/)
+- [Support](https://infact.solutions/contact-us/)
+
+## API Evangelist rating
+
+**Kin Score 13.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 0.0 |
+
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/infact/](https://apis.io/providers/infact/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for InFact: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/infact/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
